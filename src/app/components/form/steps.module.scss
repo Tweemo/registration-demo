@@ -1,0 +1,38 @@
+.step {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 0%;
+  overflow: hidden;
+  transition: width 200ms ease-in-out, opacity 100ms ease-in-out;
+  opacity: 0;
+
+  label {
+    text-transform: capitalize;
+  }
+
+  &__active {
+    width: 100%;
+    opacity: 1;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    
+    .button {
+      background-color: aliceblue;
+      width: 40%;
+      height: 2rem;
+      border-radius: 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+}
