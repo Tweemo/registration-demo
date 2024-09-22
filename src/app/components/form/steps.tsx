@@ -10,6 +10,7 @@ export default function Steps() {
   const steps: Step[] = ['name', 'email', 'password']
 
   const [currentStep, setCurrentStep] = useState<Step>('name')
+  const [content, setContent] = useState<string>('')
   const emailRegexp = new RegExp(
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   )
@@ -17,13 +18,13 @@ export default function Steps() {
   return (
     <>
       {steps.map((step, index) => {
-        const [content, setContent] = useState<string>('')
         const hasContent = content.length > 0
         const previousStep: Step = steps[index - 1]
         const nextStep: Step = steps[index + 1]
 
         return (
           <div
+            key={step}
             className={clsx(
               styles.step,
               step === currentStep && styles.step__active
