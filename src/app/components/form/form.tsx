@@ -31,7 +31,7 @@ export default function Form() {
       console.log('Registration successful:', result)
       // Handle successful registration (e.g., redirect or show success message)
     } catch (error) {
-      window.alert(`Registration failed. Please try again.`)
+      window.alert(`Registration failed. Please try again. ${error}`)
     }
   }
 
