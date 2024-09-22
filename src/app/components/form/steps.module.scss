@@ -9,6 +9,11 @@
 
   label {
     text-transform: capitalize;
+
+    &::after {
+      content: '*';
+      color: red;
+    }
   }
 
   &__active {
