@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './step.module.scss'
-import { useState } from 'react'
+import { KeyboardEvent, useState } from 'react'
 import clsx from 'clsx'
 
 export default function Step({
@@ -24,7 +24,7 @@ export default function Step({
   const previousStep = steps[index - 1]?.type
   const nextStep = steps[index + 1]?.type
 
-  function handleKeyPress(e: any, type: string) {
+  function handleKeyPress(e: KeyboardEvent<HTMLInputElement>, type: string) {
     e.preventDefault()
 
     if (type === 'email' && !emailRegexp.test(content)) {

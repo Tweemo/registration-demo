@@ -1,5 +1,6 @@
 import { sql } from '@vercel/postgres';
 import { NextResponse } from 'next/server';
+import { genSalt, hash } from 'bcrypt';
  
 export async function GET() {
   try {
@@ -13,14 +14,13 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const bcrypt = require('bcrypt');
   const saltRounds = 10;
-  const salt = await bcrypt.genSalt(saltRounds)
+  const salt = await genSalt(saltRounds)
 
   const formData = await request.formData();
   const name: string = formData.get('name') as string
   const email: string = formData.get('email') as string
-  const hashedPassword = await bcrypt.hash(formData.get('password'), salt)
+  const hashedPassword = await hash(formData.get('password') as string, salt)
 
   try {
     await sql`INSERT INTO People (Name, Email, Password) VALUES (${name}, ${email}, ${hashedPassword});`;
