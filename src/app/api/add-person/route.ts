@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
  
 export async function GET() {
   try {
-    await sql`CREATE TABLE IF NOT EXISTS People (Name TEXT, Email TEXT, Password TEXT);`;
+    await sql`SELECT * FROM People;`;
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
   }
