@@ -7,8 +7,8 @@
   box-shadow: #b4b2b2 5px 5px 7px 3px;
   background-color: beige;
   min-height: 15rem;
-  // Todo: make it responsive
   min-width: 50%;
+  max-width: 60rem;
   margin: auto 6rem;
 
   @media (max-width: 1023px) {
@@ -17,6 +17,6 @@
 
   .form {
     display: flex;
-    max-width: 30rem;
+    max-width: 25rem;
   }
 }
