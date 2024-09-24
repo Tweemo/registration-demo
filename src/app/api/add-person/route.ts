@@ -13,13 +13,17 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  const bcrypt = require('bcrypt');
+  const saltRounds = 10;
+  const salt = await bcrypt.genSalt(saltRounds)
+
   const formData = await request.formData();
   const name: string = formData.get('name') as string
   const email: string = formData.get('email') as string
-  const password: string = formData.get('password') as string
+  const hashedPassword = await bcrypt.hash(formData.get('password'), salt)
 
   try {
-    await sql`INSERT INTO People (Name, Email, Password) VALUES (${name}, ${email}, ${password});`;
+    await sql`INSERT INTO People (Name, Email, Password) VALUES (${name}, ${email}, ${hashedPassword});`;
   } catch (error) {
     return NextResponse.json({ error: (error as Error).message }, { status: 500 });
   }
