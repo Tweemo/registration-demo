@@ -1,0 +1,28 @@
+h1 {
+  margin: 0;
+  font-size: 3rem;
+}
+
+button {
+  background-color: aliceblue;
+  width: 10rem;
+  height: 2rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+label {
+  text-transform: capitalize;
+
+  &::after {
+    content: '*';
+    color: red;
+  }
+}
+
+input {
+  font-size: 1.25rem;
+}
