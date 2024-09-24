@@ -1,0 +1,13 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+  gap: 2rem;
+
+  .link {
+    all: unset;
+  }
+}
