@@ -7,13 +7,8 @@
   transition: width 200ms ease-in-out, opacity 100ms ease-in-out;
   opacity: 0;
 
-  label {
-    text-transform: capitalize;
-
-    &::after {
-      content: '*';
-      color: red;
-    }
+  @media (max-width: 1023px) {
+    gap: 3rem;
   }
 
   &__active {
@@ -24,20 +19,20 @@
   &__content {
     display: flex;
     flex-direction: column;
+    gap: 2rem;
+    
+    &Container {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   .buttonContainer {
     display: flex;
     justify-content: space-between;
-    
-    .button {
-      background-color: aliceblue;
-      width: 40%;
-      height: 2rem;
-      border-radius: 2rem;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
+
+    &.firstStep {
+      flex-direction: row-reverse;
     }
   }
 }

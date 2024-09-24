@@ -2,7 +2,7 @@
 
 import styles from './form.module.scss'
 import { FormEvent } from 'react'
-import Steps from './steps'
+import Steps from '../steps/steps'
 
 export default function Form() {
   const handleRegister = async (e: FormEvent<HTMLFormElement>) => {
@@ -30,11 +30,20 @@ export default function Form() {
     } catch (error) {
       window.alert(`Registration failed. Please try again. ${error}`)
     }
+    window.location.href = '/success'
   }
 
   return (
     <div className={styles.container}>
-      <h1>Create an account</h1>
+      <div>
+        <h1>Create an account</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipiscing elit lacinia viverra
+          purus volutpat odio, dis urna suspendisse sem duis tempor magna mollis
+          ut dignissim per, id aptent varius sagittis sollicitudin torquent
+          sapien pharetra nascetur etiam ornare.
+        </p>
+      </div>
       <form
         onSubmit={handleRegister}
         method="POST"
